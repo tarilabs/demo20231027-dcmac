@@ -1,4 +1,5 @@
 import os
+import subprocess
 from datetime import datetime
 
 def get_unique_filename():
@@ -14,6 +15,8 @@ def write_datetime_to_file(filename):
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     with open(filename, 'w') as file:
         file.write(f"Current Date and Time is: {current_time}\n")
+        unamea = subprocess.check_output("uname -a", shell=True, universal_newlines=True)
+        file.write(f"Result of `uname -a` is: {unamea}\n")
 
 if __name__ == "__main__":
     unique_filename = get_unique_filename()
