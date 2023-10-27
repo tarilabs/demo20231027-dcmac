@@ -112,3 +112,4 @@ but did not help.
 
 - https://github.com/microsoft/vscode-remote-release/issues/7284#issuecomment-1738617318
 - https://stackoverflow.com/a/77105985/893991
+- this was not helpful for my case because I need to use virtiofs: https://github.com/abiosoft/colima/issues/83#issuecomment-1339269542 but might be simpler for other setups
