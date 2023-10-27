@@ -14,3 +14,11 @@ PermissionError: [Errno 13] Permission denied: 'tmp20231027-194539-0.log'
 vscode ➜ /workspaces/demo20231027-dcmac (main) $ touch asdf
 touch: cannot touch 'asdf': Permission denied
 ```
+
+So again to fix the permission issue,
+applying the variation of the Dockerfile snippet.
+
+```
+vscode ➜ /workspaces/demo20231027-dcmac (main) $ python demo.py 
+File 'tmp20231027-195156-0.log' has been created.
+```
