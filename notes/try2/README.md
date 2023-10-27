@@ -14,3 +14,21 @@ PermissionError: [Errno 13] Permission denied: 'tmp20231027-190139-0.log'
 vscode ➜ /workspaces/demo20231027-dcmac (main) $ touch asdf
 touch: cannot touch 'asdf': Permission denied
 ```
+
+To fix the permission issue, 
+using a _variation_ from this: https://code.visualstudio.com/remote/advancedcontainers/add-nonroot-user#_change-the-uidgid-of-an-existing-container-user
+
+That is using image as FROM in a Dockerfile and a snippet as:
+
+```
+ARG USERNAME=vscode
+ARG GROUPNAME=vscode
+
+# Here I use the UID/GID from _my_ computer
+ARG USER_UID=501
+ARG USER_GID=20
+
+RUN groupmod --gid $USER_GID -o $GROUPNAME \
+    && usermod --uid $USER_UID --gid $USER_GID $USERNAME \
+    && chown -R $USER_UID:$USER_GID /home/$USERNAME
+```
